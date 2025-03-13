@@ -1,0 +1,321 @@
+/* hb.css - Styling for Happy Birthday component */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .card {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+    transform: translateY(0);
+    animation: float 6s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    height: 10px;
+    background: linear-gradient(90deg, #ff7eb3, #ff758c, #ff7eb3);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(255, 123, 172, 0.7);
+    animation: shine 2s ease-in-out infinite;
+  }
+  
+  .card h1 {
+    color: #ff758c;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    animation: pulse 2s infinite;
+  }
+  
+  .card button {
+    background: linear-gradient(45deg, #ff758c 0%, #ff7eb3 100%);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 12px 30px;
+    transition: all 0.3s ease;
+    outline: none;
+    box-shadow: 0 5px 15px rgba(255, 117, 140, 0.4);
+    position: relative;
+    z-index: 2;
+  }
+  
+  .card button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 117, 140, 0.6);
+    background: linear-gradient(45deg, #ff7eb3 0%, #ff758c 100%);
+  }
+  
+  .card button:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 10px rgba(255, 117, 140, 0.4);
+  }
+  
+  /* Balloons */
+  .container::before,
+  .container::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    border-radius: 50%;
+    bottom: -100px;
+    animation: balloon-float 15s infinite linear;
+  }
+  
+  /* Create multiple balloon instances with different colors, sizes, and animation delays */
+  .balloon {
+    position: absolute;
+    bottom: -50px;
+    width: 40px;
+    height: 50px;
+    border-radius: 50%;
+    animation: balloon-float 15s infinite linear;
+    z-index: 0;
+  }
+  
+  .balloon::before {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 19px;
+    width: 2px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Generate 10 balloons with different properties */
+  @keyframes generate-balloons {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  .balloon:nth-child(1) {
+    left: 10%;
+    background-color: #FF5252;
+    animation-duration: 12s;
+    animation-delay: 0s;
+  }
+  
+  .balloon:nth-child(2) {
+    left: 20%;
+    background-color: #FF4081;
+    animation-duration: 14s;
+    animation-delay: 1s;
+  }
+  
+  .balloon:nth-child(3) {
+    left: 30%;
+    background-color: #E040FB;
+    animation-duration: 16s;
+    animation-delay: 2s;
+  }
+  
+  .balloon:nth-child(4) {
+    left: 40%;
+    background-color: #7C4DFF;
+    animation-duration: 18s;
+    animation-delay: 0.5s;
+  }
+  
+  .balloon:nth-child(5) {
+    left: 50%;
+    background-color: #536DFE;
+    animation-duration: 15s;
+    animation-delay: 1.5s;
+  }
+  
+  .balloon:nth-child(6) {
+    left: 60%;
+    background-color: #448AFF;
+    animation-duration: 17s;
+    animation-delay: 2.5s;
+  }
+  
+  .balloon:nth-child(7) {
+    left: 70%;
+    background-color: #40C4FF;
+    animation-duration: 13s;
+    animation-delay: 0.2s;
+  }
+  
+  .balloon:nth-child(8) {
+    left: 80%;
+    background-color: #18FFFF;
+    animation-duration: 16s;
+    animation-delay: 1.2s;
+  }
+  
+  .balloon:nth-child(9) {
+    left: 90%;
+    background-color: #64FFDA;
+    animation-duration: 15s;
+    animation-delay: 0.8s;
+  }
+  
+  .balloon:nth-child(10) {
+    left: 15%;
+    background-color: #EEFF41;
+    animation-duration: 14s;
+    animation-delay: 2.2s;
+  }
+  
+  /* Hearts falling animation */
+  .heart {
+    position: absolute;
+    top: -100px;
+    font-size: 20px;
+    color: #ff758c;
+    opacity: 0.7;
+    z-index: 0;
+    animation: heart-fall linear infinite;
+  }
+  
+  /* Create 15 hearts with different properties */
+  .heart:nth-child(1) { left: 5%; animation-duration: 12s; animation-delay: 0s; }
+  .heart:nth-child(2) { left: 15%; animation-duration: 8s; animation-delay: 1s; }
+  .heart:nth-child(3) { left: 25%; animation-duration: 10s; animation-delay: 4s; }
+  .heart:nth-child(4) { left: 35%; animation-duration: 6s; animation-delay: 2s; }
+  .heart:nth-child(5) { left: 45%; animation-duration: 9s; animation-delay: 0.5s; }
+  .heart:nth-child(6) { left: 55%; animation-duration: 11s; animation-delay: 3s; }
+  .heart:nth-child(7) { left: 65%; animation-duration: 7s; animation-delay: 1.5s; }
+  .heart:nth-child(8) { left: 75%; animation-duration: 13s; animation-delay: 0.8s; }
+  .heart:nth-child(9) { left: 85%; animation-duration: 8s; animation-delay: 2.5s; }
+  .heart:nth-child(10) { left: 95%; animation-duration: 10s; animation-delay: 1.2s; }
+  .heart:nth-child(11) { left: 10%; animation-duration: 9s; animation-delay: 3.5s; }
+  .heart:nth-child(12) { left: 30%; animation-duration: 7s; animation-delay: 2.8s; }
+  .heart:nth-child(13) { left: 50%; animation-duration: 12s; animation-delay: 0.3s; }
+  .heart:nth-child(14) { left: 70%; animation-duration: 8s; animation-delay: 4.2s; }
+  .heart:nth-child(15) { left: 90%; animation-duration: 11s; animation-delay: 1.8s; }
+  
+  /* Animations */
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes shine {
+    0% {
+      box-shadow: 0 0 5px rgba(255, 123, 172, 0.7);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(255, 123, 172, 0.9);
+    }
+    100% {
+      box-shadow: 0 0 5px rgba(255, 123, 172, 0.7);
+    }
+  }
+  
+  @keyframes balloon-float {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(-100vh) rotate(20deg);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(-200vh) rotate(40deg);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes heart-fall {
+    0% {
+      transform: translateY(0) rotate(0deg) scale(1);
+      opacity: 0.7;
+    }
+    50% {
+      transform: translateY(50vh) rotate(180deg) scale(0.8);
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateY(100vh) rotate(360deg) scale(0.6);
+      opacity: 0;
+    }
+  }
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
+    .card {
+      padding: 30px;
+    }
+    
+    .card h1 {
+      font-size: 2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .card {
+      padding: 20px;
+    }
+    
+    .card h1 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    
+    .card button {
+      padding: 10px 25px;
+    }
+  }
+  
